@@ -21,11 +21,17 @@ class Item(
     var id: Int = 0
 
     override fun toString() = title
-    fun isValid() = title.isNotEmpty()
-            && snippet.isNotEmpty()
-            && pageLink.isNotEmpty()
-            && image.isValid()
-            && displayLink.isNotEmpty()
+    fun isValid(): Boolean {
+        return try {
+            (title.isNotEmpty()
+                    && snippet.isNotEmpty()
+                    && pageLink.isNotEmpty()
+                    && image.isValid()
+                    && displayLink.isNotEmpty())
+        } catch (exception: NullPointerException) {
+            false
+        }
+    }
 }
 
 class Image(
@@ -43,12 +49,18 @@ class Image(
 
     fun imageSize() = "$width X $height"
 
-    fun isValid() = height.isEmpty()
-        .or(width.isEmpty())
-        .or(byteSize.isEmpty())
-        .or(thumbnailLink.isEmpty())
-        .or(thumbnailHeight.isEmpty())
-        .or(thumbnailWidth.isEmpty()).not()
+    fun isValid():Boolean {
+        return try{
+            height.isEmpty()
+                .or(width.isEmpty())
+                .or(byteSize.isEmpty())
+                .or(thumbnailLink.isEmpty())
+                .or(thumbnailHeight.isEmpty())
+                .or(thumbnailWidth.isEmpty()).not()
+        }catch (exception: java.lang.NullPointerException){
+            false
+        }
+    }
 
     fun visibility() = when (isValid()) {
         true -> View.VISIBLE
