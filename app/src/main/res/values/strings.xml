@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Image Query</string>
+    <string name="hint_search_string">Custom Image Search</string>
+    <string name="title_text_placeholder">Title</string>
+    <string name="image_size_placeholder">Image Size</string>
+    <string name="snippet_placeholder">This is a very long description. And some more. And some more</string>
+    <string name="source_placeholder">source url goes here</string>
+    <string name="page_link_placeholder">page link goes here</string>
+    <string name="textview_description">This is a long description and more and more. And more and more and more</string>
+    <string name="search_image">search image</string>
+    <string name="thumbnail_image">Thumbnail image</string>
+    <string name="error_info_image">Error info image</string>
+    <string name="image_size_icon">Image size icon</string>
+    <string name="page_link_icon">Page link icon</string>
+    <string name="home_page_icon">Home page icon</string>
+</resources>

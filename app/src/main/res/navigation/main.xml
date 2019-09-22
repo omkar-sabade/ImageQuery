@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    app:startDestination="@id/search">
+
+    <fragment
+        android:id="@+id/search"
+        android:name="com.omkar.imagequery.ui.Search"
+        android:label="search_fragment"
+        tools:layout="@layout/search_fragment">
+        <action
+            android:id="@+id/action_search_to_results"
+            app:destination="@id/results" />
+    </fragment>
+    <fragment
+        android:id="@+id/results"
+        android:name="com.omkar.imagequery.ui.Results"
+        android:label="results_fragment"
+        tools:layout="@layout/results_fragment">
+        <action
+            android:id="@+id/action_results_to_imageDetails"
+            app:destination="@id/imageDetails"
+            app:enterAnim="@anim/nav_default_pop_enter_anim"
+            app:exitAnim="@anim/nav_default_pop_exit_anim" />
+        <argument
+            android:name="query"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/imageDetails"
+        android:name="com.omkar.imagequery.ui.ImageDetails"
+        android:label="image_details_fragment"
+        tools:layout="@layout/image_details_fragment">
+        <action
+            android:id="@+id/action_imageDetails_to_results"
+            app:destination="@id/results" />
+        <argument
+            android:name="itemID"
+            app:argType="integer" />
+    </fragment>
+</navigation>
